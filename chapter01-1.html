@@ -1,0 +1,411 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Hello World!</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter01.html"><strong aria-hidden="true">1.</strong> Meet the Dream Maker</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter01-1.html" class="active"><strong aria-hidden="true">1.1.</strong> Hello World!</a></li><li class="chapter-item expanded "><a href="chapter01-2.html"><strong aria-hidden="true">1.2.</strong> The Amazing Mapper</a></li><li class="chapter-item expanded "><a href="chapter01-3.html"><strong aria-hidden="true">1.3.</strong> Help is on the way!</a></li></ol></li><li class="chapter-item expanded "><a href="chapter02.html"><strong aria-hidden="true">2.</strong> Navigating the Code Tree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter02-1.html"><strong aria-hidden="true">2.1.</strong> Formatting Code</a></li><li class="chapter-item expanded "><a href="chapter02-2.html"><strong aria-hidden="true">2.2.</strong> Compilation Errors</a></li><li class="chapter-item expanded "><a href="chapter02-3.html"><strong aria-hidden="true">2.3.</strong> Paths in the Tree</a></li><li class="chapter-item expanded "><a href="chapter02-4.html"><strong aria-hidden="true">2.4.</strong> Code Comments</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#hello-world" id="hello-world">Hello World!</a></h1>
+<p>This first world serves not only as an introduction to the DM language,
+but to the Dream Maker editor/compiler as well.  Fortunately, the system
+has been designed to be quite simple to use, and with just a few steps you
+should be on your way to BYOND programming wizardry!</p>
+<p>Dream Maker refers to the collection of files comprising the project as the
+world <strong>environment</strong>.  When you make a new project, you create a single
+environment file, which has the name <code>[worldname].dme</code>.  This
+file may contain source code, but in general it will only be comprised of
+automatically generated references to other files in the project.  This is
+best seen by example, so let's stop talking, and get coding!</p>
+<ol>
+<li>
+<p>Create the &quot;hello&quot; project by selecting <strong>New Environment...</strong>
+from the <strong>File</strong> menu.  This prompts for a directory in which your
+project will be stored.  Enter <code>hello</code> as the desired
+directory.  This creates a new directory called <code>hello</code>,
+which now contains the <code>hello.dme</code> environment file.  Notice that
+<code>hello.dme</code> also appears in the file tree displayed on the left side
+of the screen.  All files in the environment directory are listed there.</p>
+</li>
+<li>
+<p>Let's put the code for this project in a separate file.  Select
+<strong>New File...</strong> from the <strong>File</strong> menu.  Choose <strong>Code File</strong>
+for the type, and enter <code>hello</code> for the name.  This creates a file
+called <code>hello.dm</code> in the environment directory, and a
+corresponding listing in the file tree.  The checkbox next to it indicates
+that the code in <code>hello.dm</code> will be included in this project.</p>
+</li>
+<li>
+<p>The <code>hello.dm</code> file is now ready for editing.  Type the
+following code.  (Make sure the first line is not indented, the second is
+indented once, and the third is indented twice.  It is easiest to use tabs
+for the purpose.)</p>
+<p>mob
+Login()
+world &lt;&lt; &quot;Hello, world!&quot;</p>
+</li>
+<li>
+<p>Compile the code by selecting <strong>Compile</strong> from the <strong>Build</strong>
+menu.  If there are problems, they will appear in the output box at the
+bottom of the screen.  But unless you indented incorrectly, all should
+proceed smoothly.</p>
+</li>
+<li>
+<p>Run the compiled world by selecting <strong>Run</strong> from the
+<strong>Build</strong> menu.  This launches Dream Seeker, which should subsequently
+welcome the world!</p>
+</li>
+</ol>
+<hr />
+<p>Consider the Hello World example again.  The DM code says that when a player
+logs in, a message should be displayed.  We can do a similar thing for other
+types of actions.  For example, if the player types a command, a message
+could be displayed.</p>
+<p>In DM, commands are called <strong>verbs</strong>.  A verb is defined in the following
+example:</p>
+<pre><code>mob
+   verb
+      smile()
+	 world &lt;&lt; &quot;[usr] grins.&quot;
+</code></pre>
+<p>Notice the funny stair-step indentation again!  That will be explained in a
+little bit.  For now, read this example from top to bottom.  Once again we
+are defining a property of a <strong>mob</strong> (the player's avatar).  In this case
+we are adding a <strong>verb</strong>, an action that the player can instruct the mob
+to perform.  The name of the verb is <strong>smile</strong>.  The final line displays a
+message when the mob smiles.  Notice the <code>[usr]</code> in the message; as you
+may have guessed, that is not displayed literally but is replaced by the
+name of the user, the player who initiates the command.</p>
+<p>Run this example.  Once you have logged in, try typing <strong>smile</strong> and
+pressing enter.  You should see the grinning message with your login name
+substituted into it.  Amazing!  Fantastic!  But playing god is a serious
+business.  Don't let anyone catch you grinning.</p>
+<p>For variety, you could add some more verbs.  Here are a few:</p>
+<pre><code>mob
+    verb
+        smile()
+            world &lt;&lt; &quot;[usr] grins.&quot;
+        giggle()
+            world &lt;&lt; &quot;[usr] giggles.&quot;
+        cry()
+            world &lt;&lt; &quot;[usr] cries \his heart out.&quot;
+</code></pre>
+<p>Now the stair-step pattern has been broken because all three verbs
+<strong>smile</strong>, <strong>giggle</strong>, and <strong>cry</strong> are at the same level of
+indentation.  In DM, indentation at the beginning of a line serves to group
+things together.  Here, <strong>smile</strong>, <strong>giggle</strong>, and <strong>cry</strong> are
+all grouped together as verbs belonging to <strong>mob</strong>.  Each of these verbs
+has it's own contents indented beneath it.</p>
+<p>Notice the use of <code>\his</code> in the <strong>cry</strong> verb.  This
+macro is replaced by the appropriate possessive pronoun.  It could be
+<strong>his</strong>, <strong>her</strong>, <strong>its</strong>, or <strong>their</strong>, depending on the
+gender.  DM provides a few other useful macros like this one to make life
+easy.</p>
+<p>So far nothing has been said (because you never asked) about the empty
+parentheses after the verb names in the above examples.  They were in the
+first example after <code>Login</code> too.  These are the mark of a procedure
+definition.  The verbs and <code>Login</code> are all examples of procedures,
+which are a sequence of instructions to be carried out.  In the examples so
+far each procedure consisted of only one line--an instruction to display
+some text.  They can, of course, become much more complicated than that.</p>
+<p>There are two general categories of procedures: those that show up as player
+commands and those that do not.  These are called <strong>verbs</strong> and
+<strong>procs</strong> respectively.  By that definition, <code>Login</code> in the
+<strong>Hello World</strong> example was a proc.</p>
+<p>The parentheses after a procedure name are more than decorative.  They can
+be used to define procedure parameters.  This allows for providing additional
+information to the procedure.  The information is stored in a variable, that
+is, a piece of memory with a name.  To confuse matters, a programmer will
+often call such variables, which serve as the parameters to procedures,
+<strong>arguments</strong>.  Why?  Well, just for the sake of argument.</p>
+<p>Here is an example of a verb that takes a parameter--in this case a short
+message to be broadcast to the world.</p>
+<pre><code>mob
+    verb
+        say(msg as text)
+            world &lt;&lt; &quot;[usr] says, [msg]&quot;
+</code></pre>
+<p>In these few short lines are the bare bones of a chat world.  Users can log
+in and start gabbing using the <strong>say</strong> verb.  Try it out.  Your session
+might look something like the following:</p>
+<blockquote>
+<p>say &quot;hello world!&quot;
+Dan says, hello world!</p>
+</blockquote>
+<p>The main point of interest in the DM code is inside the parentheses where
+the parameter <code>msg</code> is defined.  It could have been called anything; the
+variable name is arbitrary.  The statement <code>as text</code> indicates that a
+short message supplied by the user will be stored in the variable.  This
+message is then inserted into the final output at the position marked by the
+expression <code>[msg]</code>.</p>
+<p>So far I have casually introduced mobs, verbs, procs, and arguments.  Now
+it is time for a formal (tediously exciting) description of the DM syntax.
+It may take several multi-clausal sentences to get through this, so don't
+hold your breath.</p>
+<p>DM code is structured like a tree.  The top of the tree is called the root.
+The various types of virtual objects (mobs being one) branch off of the root
+and may in turn give rise to additional strains that branch down from them.</p>
+<p>If you haven't noticed, the code tree terminology is upside down.  Of
+course, so is the file-system on your hard-drive, and every other
+informational tree in existence.  It is quite possible that the vast
+majority of computer scientists have never actually seen a real tree.  The
+sheer weight of their ignorance keeps the jargon from flipping right side
+up, and we are stuck with trees having a root at the top and leaf nodules at
+the bottom.  Or it might just be standard obfuscation.  That's why I do it.</p>
+<p>It is time for an example.  One particularly interesting type of virtual
+object is a <code>turf</code>.  It is a building block used to make graphical
+maps that players can walk around on.  Suppose we wanted to make a maze.
+That would require two types of turfs: floors and walls.  Here's how you
+would define them:</p>
+<pre><code>turf
+    floor
+    wall
+</code></pre>
+<p>All we did was branch two new types of objects off of the basic turf.  One
+is called <code>floor</code> and the other <code>wall</code>.  The terminology of a family
+tree is often used to describe the relationship of the various objects
+defined here.  Turf is the parent of floor and wall.  The two children are
+siblings of each other.  A child inherits all the properties of its parent
+and adds some of its own to distinguish it from its siblings.  Both floor
+and wall are turfs because they are derived from the turf object type.</p>
+<p>To make a maze, we need to specify a few properties of floors and walls:
+what they look like and whether you can walk through them.  While we're at
+it, the appearance of a player should be defined too.  This is how it is
+done:</p>
+<pre><code>turf
+    floor
+        icon = 'floor.dmi'
+    wall
+        icon = 'wall.dmi'
+        density = 1
+mob
+    icon = 'player.dmi'
+</code></pre>
+<p>Several assignments have been made.  These take the form of a variable on
+the left-hand side and a value on the right.  In the case of the icons, the
+value is the name of an icon file inside single quotes.  In the case of
+density, the value should be 1 or 0 to indicate if it is dense or not.  A
+dense turf will not allow other dense objects (like mobs) to walk through
+them.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="chapter01.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="chapter01-2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="chapter01.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="chapter01-2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
