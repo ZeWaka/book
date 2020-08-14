@@ -13,13 +13,13 @@ before_script:
   - cargo install-update -a
 
 script:
-  - mdbook build ~/TheDreamMaker/book && mdbook test ~/TheDreamMaker/book
+  - mdbook build ./ && mdbook test ./
 
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
-  local-dir: ~/TheDreamMaker/book
+  local-dir: ./
   keep-history: false
   on:
     branch: master
